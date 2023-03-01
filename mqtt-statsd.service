@@ -1,0 +1,12 @@
+[Unit]
+Description=mqtt-to-statsd
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/statsdpytest/mqtttest.py
+Restart=always
+Type=simple
+User=pi
+
+[Install]
+WantedBy=multi-user.target
