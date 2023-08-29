@@ -1,12 +1,14 @@
 [Unit]
-Description=mqtt-to-statsd
-After=multi-user.target
+Description=MQTT Statsd
+After=mosquitto.service
+StartLimitIntervalSec=0
 
 [Service]
-ExecStart=/usr/bin/python3 /home/pi/statsdpytest/mqtttest.py
-Restart=always
 Type=simple
+Restart=always
+RestartSec=1
 User=pi
+ExecStart=/usr/bin/env python3 /home/pi/mqtt-statsd/mqtt-statsd.py
 
 [Install]
 WantedBy=multi-user.target
