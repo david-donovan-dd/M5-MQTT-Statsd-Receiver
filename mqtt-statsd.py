@@ -48,6 +48,7 @@ def subscribe(client: mqtt_client):
         room = data[1]
         tag = "room:" + room
         statsd.gauge(str(msg.topic), float(value), tags=[tag])
+        print("sent dogstatsd")
     for x in topics:
         client.subscribe(x)
         client.on_message = on_message
