@@ -5,13 +5,13 @@ import random
 from paho.mqtt import client as mqtt_client
 
 
-broker = 'm5server.local'
+broker = <broker hostname>
 port = 1883
 topics = ["temp", "co2"]
 # generate client ID with pub prefix randomly
 client_id = f'python-mqtt-{random.randint(0, 100)}'
-username = 'm5receiver'
-password = 'test4375'
+username = <username>
+password = <password>
 
 from datadog import initialize, statsd
 
